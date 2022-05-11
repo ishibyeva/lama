@@ -450,8 +450,18 @@ If you found this code helpful, please consider citing:
 <div style="text-align:center" align="center">
 <br>
 <br>
-  <img loading="lazy"  height="50px" src="https://raw.githubusercontent.com/saic-mdal/lama-project/main/docs/img/samsung_ai.png" />
+  <img loading="lazy" height="50px" src="https://raw.githubusercontent.com/saic-mdal/lama-project/main/docs/img/samsung_ai.png" />
 </div>
 <br>
 <p style="font-weight:normal; font-size: 16pt;text-align:center"align="center"  >Copyright © 2021</p>
 <br>
+
+
+## Инструкция для проекта по разработке систем глубокого обучения 
+
+1. Клонируйте репозиторий:
+`git clone https://github.com/ishibyeva/lama.git`
+и перейдите в директорию с docker
+`cd lama/docker`
+2. Запустите докер, где запустится скрипт с мини-тестом на модели big-lama:
+``
