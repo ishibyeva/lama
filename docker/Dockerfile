@@ -1,8 +1,11 @@
 FROM ubuntu:20.04
 
+ENV TZ=Europe/Moscow
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y wget mc tmux nano build-essential rsync libgl1
+    apt-get install -y wget mc tmux nano build-essential rsync libgl1 python3-pip
 
 ARG USERNAME=user
 RUN apt-get install -y sudo && \
@@ -17,7 +20,7 @@ USER $USERNAME:$USERNAME
 WORKDIR "/home/$USERNAME"
 ENV PYTHONPATH="/home/$USERNAME/project"
 
-RUN pip install -U pip
+
 RUN pip install numpy scipy torch==1.8.1 torchvision opencv-python tensorflow joblib matplotlib pandas \
     albumentations==0.5.2 pytorch-lightning==1.2.9 tabulate easydict==1.9.0 kornia==0.5.0 webdataset \
     packaging gpustat tqdm pyyaml hydra-core==1.1.0.dev6 scikit-learn==0.24.2 tabulate pytest==7.1.2 

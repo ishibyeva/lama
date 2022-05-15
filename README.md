@@ -460,8 +460,23 @@ If you found this code helpful, please consider citing:
 ## Инструкция для проекта по разработке систем глубокого обучения 
 
 1. Клонируйте репозиторий:
-`git clone https://github.com/ishibyeva/lama.git`
-и перейдите в директорию с docker
-`cd lama/docker`
-2. Запустите докер, где запустится скрипт с мини-тестом на модели big-lama:
-``
+```
+git clone https://github.com/ishibyeva/lama.git
+```
+и перейдите в директорию
+```
+cd lama
+```
+
+**для дальнейших интрукций можно не использовать sudo, если ваш пользователь добавлен в группу docker**
+
+2. Запустите создание образа, где потом запустится скрипт с мини-тестом на модели big-lama:
+```
+sudo docker build docker --tag cv_proj
+```
+
+3. Запустите образ c подмаученной директорией проекта:
+```
+sudo docker run cv_proj -v $(pwd):/mounted
+```
+**для не unix систем используйте вместо $(pwd) полный путь до проекта**
