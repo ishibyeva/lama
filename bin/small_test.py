@@ -23,7 +23,7 @@ def test_inpainting_with_standart_set_with_masks():
     #                'indir=' + testing_images, 'outdir=' + output_dir]
     
     start_predict = ['python3', 'bin/predict.py', 'model.path=' + sys.argv[1],
-                    'indir=' + sys.argv[2], 'outdir=' + sys.argv[3]]
+                    'indir=' + sys.argv[2], 'outdir=' + os.path.join(parent_dir, 'output')]
     start_time = time.time()
     proc = subprocess.Popen(start_predict, stdin = subprocess.PIPE, stderr = subprocess.PIPE)
     end_time = time.time()

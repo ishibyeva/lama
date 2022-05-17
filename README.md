@@ -477,6 +477,6 @@ sudo docker build docker --tag cv_proj
 
 3. Запустите образ c подмаученной директорией проекта:
 ```
-sudo docker run cv_proj -v $(pwd):/mounted
+sudo docker run -it cv_proj /bin/bash -v $(pwd):/mounted
 ```
 **для не unix систем используйте вместо $(pwd) полный путь до проекта**
