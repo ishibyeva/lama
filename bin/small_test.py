@@ -26,7 +26,7 @@ def test_inpainting_with_standart_set_with_masks():
                     'indir=' + sys.argv[3], 'outdir=' + os.path.join(parent_dir, 'output')]
 
     start_time = time.time()
-    proc = subprocess.Popen(start_predict, stdin = subprocess.PIPE, stderr = subprocess.PIPE)
+    proc = subprocess.run(start_predict, stdin = subprocess.PIPE, stderr = subprocess.PIPE)
     end_time = time.time()
     
     assert end_time - start_time < 1500.0, 'Failed: inpainting timeout'
