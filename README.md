@@ -467,16 +467,25 @@ git clone https://github.com/ishibyeva/lama.git
 ```
 cd lama
 ```
-
-**для дальнейших интрукций можно не использовать sudo, если ваш пользователь добавлен в группу docker**
+**для дальнейших интрукций нужно использовать sudo, если ваш пользователь не добавлен в группу docker или вы не работаете с правами администратора**
 
 2. Запустите создание образа, где потом запустится скрипт с мини-тестом на модели big-lama:
 ```
-sudo docker build docker --tag cv_proj
+docker build docker --tag cv_proj
 ```
-
 3. Запустите образ c подмаученной директорией проекта:
 ```
-sudo docker run -it cv_proj /bin/bash -v $(pwd):/mounted
+docker run -it -v "$(pwd)"/target:/mount cv_proj:latest /bin/bash
+sh 4_testing.sh
 ```
 **для не unix систем используйте вместо $(pwd) полный путь до проекта**
+
+4. (Опционально) Перенос данных на домашнюю ОС из контейнера
+```
+cd lama
+sudo cp -r output /mount
+```
+5. Выйдите из контейнера
+```
+exit
+```
